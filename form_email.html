@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<head>
+<meta charset="utf-8" />
+<title>Formulário com Validação</title>
+<style>
+img {width: 100%; height: 100%;}
+form {text-align: center; border:none;}
+fieldset {border:none;}
+.title {font-size:40px;}
+</style>
+<script type="text/javascript">
+function myFunction() {
+  // Get the checkbox
+  var checkBox = document.getElementById("myCheck");
+  // Get the output text
+  var text = document.getElementById("text");
+
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    text.style.display = "block";
+  } else {
+    text.style.display = "none";
+  }
+}
+
+
+function validaForm(frm) {};
+</script>
+</head>
+<body>
+<!--Inicio do Formulário-->
+    <img src="EloGroup.png">
+    <form name="frmEloGroup" method="post" action="#" onsubmit="return validaForm(this);">
+        <fieldset>
+          <p class="title">  Preencha os dados abaixo: </p>
+        <!--Nome-->  
+          <div><div><p>Nome: <input type="text" name="nome" id="nome" /></p></div>
+        <!--Email-->
+                <div><p>Email: <input type="text" name="email" id="email" /></p></div>
+        <!--Telefone-->        
+                <div><p>Telefone:<input type="text" name="telefone" id="telefone"></p></div>
+        <!--Como nos conheceu?-->        
+                <div>
+                <p>
+                    Como nos conheceu?
+                    <select id="conheceu">
+                        <option value="TV">TV</option>
+                        <option value="Internet">Internet</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                </p>
+                </div>
+        <!--Possui rede social?-->        
+                <div>
+                    <p>
+                        Possui rede social?
+                        <label><input type="radio" name="social" value="Sim" id="myCheck" onclick="myFunction()" />Sim</label>
+                        <label><input type="radio" name="social" value="Não" id="nao" />Não</label>
+                        
+                    </p>
+                 </div>
+        <!--Quais?-->         
+                 <div>
+                 <p id="text" style="display:none">
+                        <input type="checkbox" id="facebook" name="social" value="Facebook">
+                        <label for="social1"> Facebook</label><br>
+                        <input type="checkbox" id="instagram" name="social" value="Instagram">
+                        <label for="social2"> Instagram</label><br>
+                        <input type="checkbox" id="linkedin" name="social" value="Linkedin">
+                        <label for="social3"> Linkedin</label><br>
+                 </p>
+                </div>
+                <div>
+                    </p><label><input type="submit" name="sbt" value="Enviar" onclick="display.none"  /></label></p>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>
