@@ -1,49 +1,68 @@
 ﻿<!DOCTYPE html>
+<!--Head-->
 <head>
 <meta charset="utf-8" />
-<title>Formulário com Validação</title>
+<title>Formulário EloGroup</title>
+<!--CSS Início-->
 <style>
 img {width: 100%; height: 100%;}
 form {text-align: center; border:none;}
 fieldset {border:none;}
 .title {font-size:40px;}
 </style>
-<script type="text/javascript">
-function myFunction() {
-  // Get the checkbox
-  var checkBox = document.getElementById("myCheck");
-  // Get the output text
-  var text = document.getElementById("text");
+<!--CSS Fim-->
 
-  // If the checkbox is checked, display the output text
+<!--JavaScript Início-->
+<script type="text/javascript">
+//Função que mostra o checkbox das redes sociais quando selecionado "Sim"
+function mostra() {
+  var checkBox = document.getElementById("myCheckSim");
+  var text = document.getElementById("text");
   if (checkBox.checked == true){
     text.style.display = "block";
   } else {
     text.style.display = "none";
   }
 }
-
-
+//Função que some com os checkbox quando selecionado "Não"
+function esconde() {
+  var checkBox = document.getElementById("myCheckNao");
+  var text = document.getElementById("text");
+  if (checkBox.checked == true){
+    text.style.display = "none";
+  } else {
+    text.style.display = "block";
+  }
+}
+function alerta() {
+    { alert("Concluído com Sucesso"); }
+}
+//Validações
 function validaForm(frm) {};
 </script>
+<!--JavaScript Fim-->
 </head>
+<!--Body-->
 <body>
-<!--Inicio do Formulário-->
+<!--Logo-->
     <img src="EloGroup.png">
+<!--Inicio do Formulário-->
     <form name="frmEloGroup" method="post" action="#" onsubmit="return validaForm(this);">
         <fieldset>
+            <div>
           <p class="title">  Preencha os dados abaixo: </p>
         <!--Nome-->  
-          <div><div><p>Nome: <input type="text" name="nome" id="nome" /></p></div>
+          <div><p>Nome: <input type="text" name="nome" id="nome" placeholder="Nome e Sobrenome" /></p></div>
         <!--Email-->
-                <div><p>Email: <input type="text" name="email" id="email" /></p></div>
+                <div><p>Email: <input type="text" name="email" id="email" placeholder="Ex: meuemail@email.com" /></p></div>
         <!--Telefone-->        
-                <div><p>Telefone:<input type="text" name="telefone" id="telefone"></p></div>
+                <div><p>Telefone: <input type="text" name="telefone" id="telefone" placeholder="Ex: 99 - 99999999"></p></div>
         <!--Como nos conheceu?-->        
                 <div>
                 <p>
                     Como nos conheceu?
                     <select id="conheceu">
+                        <option value=" ">   </option>
                         <option value="TV">TV</option>
                         <option value="Internet">Internet</option>
                         <option value="Outros">Outros</option>
@@ -54,27 +73,29 @@ function validaForm(frm) {};
                 <div>
                     <p>
                         Possui rede social?
-                        <label><input type="radio" name="social" value="Sim" id="myCheck" onclick="myFunction()" />Sim</label>
-                        <label><input type="radio" name="social" value="Não" id="nao" />Não</label>
+                        <label><input type="radio" name="social" value="Sim" id="myCheckSim" onclick="mostra()" />Sim</label>
+                        <label><input type="radio" name="social" value="Não" id="myCheckNao" onclick="esconde()" />Não</label>
                         
                     </p>
                  </div>
         <!--Quais?-->         
                  <div>
                  <p id="text" style="display:none">
-                        <input type="checkbox" id="facebook" name="social" value="Facebook">
+                        <input type="checkbox" id="facebook" name="social1" value="Facebook">
                         <label for="social1"> Facebook</label><br>
-                        <input type="checkbox" id="instagram" name="social" value="Instagram">
+                        <input type="checkbox" id="instagram" name="social2" value="Instagram">
                         <label for="social2"> Instagram</label><br>
-                        <input type="checkbox" id="linkedin" name="social" value="Linkedin">
+                        <input type="checkbox" id="linkedin" name="social3" value="Linkedin">
                         <label for="social3"> Linkedin</label><br>
                  </p>
                 </div>
+        <!--Enviar-->        
                 <div>
-                    </p><label><input type="submit" name="sbt" value="Enviar" onclick="display.none"  /></label></p>
+                    <p><label><input id="Enviar" type="submit" name="sbt" value="Enviar" onclick="this.disabled = true;alerta()" /></label></p>
                 </div>
             </div>
         </fieldset>
     </form>
+<!--Fim do Formulário-->
 </body>
 </html>
